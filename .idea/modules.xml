@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Common/Common.iml" filepath="$PROJECT_DIR$/Common/Common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JuderUI/JuderUI.iml" filepath="$PROJECT_DIR$/JuderUI/JuderUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Judger/Judger.iml" filepath="$PROJECT_DIR$/Judger/Judger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lib/Lib.iml" filepath="$PROJECT_DIR$/Lib/Lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/OJ.iml" filepath="$PROJECT_DIR$/.idea/OJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/clientUpdater/clientUpdater.iml" filepath="$PROJECT_DIR$/clientUpdater/clientUpdater.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client/build/generated/generated.iml" filepath="$PROJECT_DIR$/client/build/generated/generated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client/build/generated-sources/generated-sources.iml" filepath="$PROJECT_DIR$/client/build/generated-sources/generated-sources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JuderUI/build/generated-sources/generated-sources1.iml" filepath="$PROJECT_DIR$/JuderUI/build/generated-sources/generated-sources1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JuderUI/build/generated/generated1.iml" filepath="$PROJECT_DIR$/JuderUI/build/generated/generated1.iml" />
+    </modules>
+  </component>
+</project>

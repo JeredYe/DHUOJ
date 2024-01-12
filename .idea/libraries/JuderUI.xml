@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JuderUI">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/JuderUI/dist/JuderUI.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

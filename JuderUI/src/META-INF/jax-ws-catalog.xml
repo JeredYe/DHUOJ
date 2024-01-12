@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://47.95.22.126:8080/oj/webservice/OJWS?wsdl" uri="wsdl/47.95.22.126_8080/oj/webservice/OJWS.wsdl"/>
+    <system systemId="http://127.0.0.1:8080/oj/webservice/OJWS?wsdl" uri="wsdl/127.0.0.1_8080/oj/webservice/OJWS.wsdl"/>
+    <system systemId="http://106.15.36.190:80/oj/webservice/OJWS?wsdl" uri="wsdl/106.15.36.190_80/oj/webservice/OJWS.wsdl"/>
+</catalog>

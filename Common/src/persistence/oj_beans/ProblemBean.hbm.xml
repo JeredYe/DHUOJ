@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="persistence.oj_beans">
+  <class name="ProblemBean" table="problems">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="title" type="string" update="false">
+      <column name="title"/>
+    </property>
+    <property name="description" type="string" update="false">
+      <column name="description"/>
+    </property>
+    <property name="memory_limit" type="float" update="false">
+      <column name="memory_limit"/>
+    </property>
+    <property name="time_limit" type="float" update="false">
+      <column name="time_limit"/>
+    </property>
+    <property name="inputRequirement" type="string" update="false">
+      <column name="inputRequirement"/>
+    </property>
+    <property name="outputRequirement" type="string" update="false">
+      <column name="outputRequirement"/>
+    </property>
+    <property name="sample_input" type="string" update="false">
+      <column name="sample_input"/>
+    </property>
+    <property name="sample_output" type="string" update="false">
+      <column name="sample_ouput"/>
+    </property>
+    <property name="author" type="string" update="false">
+      <column name="author"/>
+    </property>
+    <property name="difficulty" type="string" update="false">
+      <column name="difficulty"/>
+    </property>
+    <property name="sourceCode" type="string" update="false">
+      <column name="sourceCode"/>
+    </property>
+    <property name="srcCodeLanguage" type="string" update="false">
+      <column name="srcCodeLanguage"/>
+    </property>
+    <property name="scoreGrade" type="string" update="false">
+      <column name="scoreGrade"/>
+    </property>
+    <property name="chapterId" type="int" update="false">
+      <column name="chapterId"/>
+    </property>
+    <property name="checkSimilarity" type="int" update="false">
+      <column name="checkSimilarity"/>
+    </property>
+    <property name="similarityThreshold" type="float" update="false">
+      <column name="similarityThreshold"/>
+    </property>
+    <property name="solved" type="int" update="false">
+      <column name="solved"/>
+    </property>
+    <property name="submit" type="int" update="true">
+      <column name="submit"/>
+    </property>
+    <property name="ratio" type="float" update="false">
+      <column name="ratio"/>
+    </property>
+     <property name="teacherId" type="int" update="false">
+      <column name="teacherId"/>
+    </property>
+     <property name="source" type="string" update="false">
+      <column name="source"/>
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="persistence.oj_beans">
+  <class name="ExamDetailBean" table="studentexamdetail">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="userId" type="int" update="false">
+      <column name="userId"/>
+    </property>
+    <property name="examId" type="int" update="false">
+      <column name="examId"/>
+    </property>
+    <property name="problemId" type="int" update="false">
+      <column name="problemId"/>
+    </property>
+    <property name="submit" type="int">
+      <column name="submit"/>
+    </property>
+    <property name="status" type="string">
+      <column name="status"/>
+    </property>
+    <property name="hintCases" type="string" update="false">
+      <column name="hintCases"/>
+    </property>
+    <property name="score" type="float" update="true">
+      <column name="score"/>
+    </property>
+    <property name="elapsedTime" type="int">
+      <column name="elapsedTime"/>
+    </property>
+    <property name="finished" type="boolean" update="false">
+      <column name="finished"/>
+    </property>
+     <property name="solutionId" type="int" update="false">
+      <column name="solutionId"/>
+    </property>
+  </class>
+</hibernate-mapping>

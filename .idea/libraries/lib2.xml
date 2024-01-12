@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="lib2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/hibernate3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/cglib-nodep-2.1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/commons-collections-2.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/jta.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/commons-logging-1.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/jdom2-2.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/registry.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/Common.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/jdom.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/mysql-connector-java-5.1.6-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/asm-all-2.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/antlr_2.7.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/jna-platform-4.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/jna.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Judger/dist/lib/dom4j-1.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

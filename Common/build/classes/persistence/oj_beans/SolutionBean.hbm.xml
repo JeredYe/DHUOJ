@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="persistence.oj_beans">
+  <class name="SolutionBean" table="solution">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="examId" type="int" update="false">
+      <column name="examId"/>
+    </property>
+    <property name="problemId" type="int" update="false">
+      <column name="problemId"/>
+    </property>
+    <property name="userId" type="int" update="false">
+      <column name="userId"/>
+    </property>
+    <property name="submitTime" type="java.util.Date" update="false">
+      <column name="submitTime"/>
+    </property>
+    <property name="language" type="string" update="false">
+      <column name="language"/>
+    </property>
+    <property name="sourceCode" type="string" update="false">
+      <column name="sourceCode"/>
+    </property>
+    <property name="status" type="string">
+      <column name="status"/>
+    </property>
+    <property name="correctCaseIds" type="string">
+      <column name="correctCaseIds"/>
+    </property>
+    <property name="remark" type="string">
+      <column name="remark"/>
+    </property>
+  </class>
+</hibernate-mapping>

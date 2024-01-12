@@ -1,0 +1,26 @@
+How to install ice_jniregistry.dll:
+
+Copy file ice_jniregistry.dll to the installation directory of the program that is requesting ice_jniregistry.dll.
+If that doesn't work, you will have to copy ice_jniregistry.dll to your system directory. By default, this is:
+Windows 95/98/Me - C:\Windows\System
+Windows NT/2000 - C:\WINNT\System32
+Windows XP, Vista, 7 - C:\Windows\System32
+If you use a 64-bit version of Windows, you should also copy ice_jniregistry.dll to C:\Windows\SysWOW64\
+Make a backup copy of the original files
+Overwrite any existing files
+Reboot your computer.
+If the problem still occurs, try the following:
+Open Windows Start menu and select "Run...".
+Type CMD and press Enter (or if you use Windows ME, type COMMAND)
+Type regsvr32 ice_jniregistry.dll and press Enter.
+
+If you can't find windows directory try the following:
+Open Windows Start menu and select "Run...".
+Type CMD and press Enter (or if you use Windows ME, type COMMAND)
+Type %WINDIR% and press Enter.
+
+Other versions of this file:
+ice_jniregistry (2).dll 01.05.2012
+
+
+

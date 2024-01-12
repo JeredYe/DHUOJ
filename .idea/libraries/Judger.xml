@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Judger">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Judger/dist/Judger.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

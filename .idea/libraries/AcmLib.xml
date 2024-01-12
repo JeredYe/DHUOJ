@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="AcmLib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/AcmLib/dom4j-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcmLib/jta.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcmLib/cglib-2.1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcmLib/jdom-2.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcmLib/mysql-connector-java-5.1.6-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcmLib/jdom.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcmLib/asm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcmLib/antlr-2.7.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcmLib/hibernate3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcmLib/commons-collections-2.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AcmLib/commons-logging-1.0.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
