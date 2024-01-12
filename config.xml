@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<languages>
+  <language id="C++">
+    <compiler name="MinGW">
+      <path>K:\Dev-Cpp\MinGW64\bin</path>
+      <compileCmd>g++.exe -Wall -g -std=c++14 -c $sourceFile$ -o $objFile$</compileCmd>
+      <!--            g++.exe -Wall -g -std=c++14  -c D:\prog_old\test\main.cpp -o obj\Debug\main.o-->
+      <linkCmd>g++.exe  -o $exeFile$ $objFile$  -O1</linkCmd>
+      <!--            g++.exe  -o bin\Debug\test.exe obj\Debug\main.o  -O1-->
+      <runCmd>"$exeFile$"</runCmd>
+    </compiler>
+    <compiler name="MSVC">
+      <path>C:/MinGW/bin/</path>
+      <compileCmd>g++.exe -Wall -g -std=c++14 -c $sourceFile$ -o $objFile$</compileCmd>
+      <!--            g++.exe -Wall -g -std=c++14  -c D:\prog_old\test\main.cpp -o obj\Debug\main.o-->
+      <linkCmd>g++.exe  -o $exeFile$ $objFile$  -O1</linkCmd>
+      <!--            g++.exe  -o bin\Debug\test.exe obj\Debug\main.o  -O1-->
+      <runCmd>msvc</runCmd>
+    </compiler>
+  </language>
+  <language id="Java">
+    <compiler name="JDK8">
+      <path>C:/JDK8/bin</path>
+      <compileCmd>g++.exe -Wall -g -std=c++14 -c $sourceFile$ -o $objFile$</compileCmd>
+      <!--            g++.exe -Wall -g -std=c++14  -c D:\prog_old\test\main.cpp -o obj\Debug\main.o-->
+      <linkCmd>g++.exe  -o $exeFile$ $objFile$  -O1</linkCmd>
+      <!--            g++.exe  -o bin\Debug\test.exe obj\Debug\main.o  -O1-->
+      <runCmd>"$compilerPath$ java -cp $sourceFile$\output\$exeFile$"</runCmd>
+    </compiler>
+    <compiler name="JDK9">
+      <path>C:/MinGW/bin/</path>
+      <compileCmd>g++.exe -Wall -g -std=c++14 -c $sourceFile$ -o $objFile$</compileCmd>
+      <!--            g++.exe -Wall -g -std=c++14  -c D:\prog_old\test\main.cpp -o obj\Debug\main.o-->
+      <linkCmd>g++.exe  -o $exeFile$ $objFile$  -O1</linkCmd>
+      <!--            g++.exe  -o bin\Debug\test.exe obj\Debug\main.o  -O1-->
+      <runCmd>
+      </runCmd>
+    </compiler>
+  </language>
+  <language id="Python">
+    <compiler name="Python2">
+      <path>C:/MinGW/bin/</path>
+      <compileCmd>g++.exe -Wall -g -std=c++14 -c $sourceFile$ -o $objFile$</compileCmd>
+      <!--            g++.exe -Wall -g -std=c++14  -c D:\prog_old\test\main.cpp -o obj\Debug\main.o-->
+      <linkCmd>g++.exe  -o $exeFile$ $objFile$  -O1</linkCmd>
+      <!--            g++.exe  -o bin\Debug\test.exe obj\Debug\main.o  -O1-->
+      <runCmd>$exeFile$</runCmd>
+    </compiler>
+    <compiler name="Python3">
+      <path>C:/MinGW/bin/</path>
+      <compileCmd>g++.exe -Wall -g -std=c++14 -c $sourceFile$ -o $objFile$</compileCmd>
+      <!--            g++.exe -Wall -g -std=c++14  -c D:\prog_old\test\main.cpp -o obj\Debug\main.o-->
+      <linkCmd>g++.exe  -o $exeFile$ $objFile$  -O1</linkCmd>
+      <!--            g++.exe  -o bin\Debug\test.exe obj\Debug\main.o  -O1-->
+      <runCmd>
+      </runCmd>
+    </compiler>
+  </language>
+  <!--    sourceFile-->
+  <!--    objFile-->
+  <!--    exeFile-->
+  <language id="VB" />
+</languages>

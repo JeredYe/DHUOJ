@@ -64,24 +64,20 @@ public class NewCompileSetting extends javax.swing.JDialog {
     private void saveConfig() {
         try {
             //根据radiobutton的选择情况判断写入
-            if (cSystem.isSelected()) {
+            if (cSystem.isSelected()||cRegistry.isSelected()||cSelf.isSelected()) {
                 //路径为自带编译器路径
                 Config.getProp().setProperty(Const.MinGWDir, Config.CompilerDir("c"));
                 Config.getProp().setProperty(Const.MinGWRelative, "1");
-            } else if (cRegistry.isSelected()) {
                 Config.getProp().setProperty(Const.MinGWDir, lblCRegistryMessage.getText());
                 Config.getProp().setProperty(Const.MinGWRelative, "2");
-            } else if (cSelf.isSelected()) {
                 Config.getProp().setProperty(Const.MinGWDir, cDir.getText());
                 Config.getProp().setProperty(Const.MinGWRelative, "3");
             }
-            if (javaSystem.isSelected()) {
+            if (javaSystem.isSelected()||javaRegistry.isSelected()||javaSelf.isSelected()) {
                 Config.getProp().setProperty(Const.JavaCompilerDir, Config.CompilerDir("java"));
                 Config.getProp().setProperty(Const.JavaRelative, "1");
-            } else if (javaRegistry.isSelected()) {
                 Config.getProp().setProperty(Const.JavaCompilerDir, lblJavaRegistryMessage.getText());
                 Config.getProp().setProperty(Const.JavaRelative, "2");
-            } else if (javaSelf.isSelected()) {
                 Config.getProp().setProperty(Const.JavaCompilerDir, javaDir.getText());
                 Config.getProp().setProperty(Const.JavaRelative, "3");
             }

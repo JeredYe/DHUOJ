@@ -41,9 +41,9 @@ public class Const {
         return null;
     }
 
-    public static final String cCompilerDirIdentify = "cCompilerDir";
-    public static final String cppCompilerDirIdentify = "cppCompilerDir";
-    public static final String javaCompilerDirIdentify = "javaCompilerDir";
+    public static final String cCompilerDirIdentify = "MinGWDir";//"cCompilerDir";
+    public static final String cppCompilerDirIdentify = "MinGWDir";//"cppCompilerDir"
+    public static final String javaCompilerDirIdentify = "JavaCompileDir";
     public static final String JavaCompilerDir = "JavaCompileDir";
     public static final String RelativeJavaCompileDir = "\\Java\\bin";
     public static final String JavaRelative = "JavaRelative";

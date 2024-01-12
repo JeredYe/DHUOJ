@@ -25,7 +25,7 @@ public class Config {
 
     static {
         try {
-            InputStream in = new FileInputStream(FileFinder.findFile("config.properties"));
+            InputStream in = new FileInputStream(FileFinder.findFile("config/config.properties"));
             prop.load(in);
             DEBUG = Integer.valueOf(prop.getProperty("Debug"));
 //            isCppRelative = prop.getProperty("isCppRelative").equals("true") ? true : false;
@@ -42,6 +42,7 @@ public class Config {
             } else {
                 JavaRelative = -1;
             }
+            
         } catch (Exception e) {
             Log.writeExceptionLog(e.getClass()+e.getMessage());
             e.printStackTrace();
@@ -50,11 +51,11 @@ public class Config {
 
     public static void freshConfig() {
         try {
-            InputStream in = new FileInputStream(FileFinder.findFile("config.properties"));
+            InputStream in = new FileInputStream(FileFinder.findFile("config/config.properties"));
             prop.load(in);
             DEBUG = Integer.valueOf(prop.getProperty("Debug"));
-//            isCppRelative = prop.getProperty("isCppRelative").equals("true") ? true : false;
-//            isJavaRelative = prop.getProperty("isJavaRelative").equals("true")?true: false;
+
+            
             String tmp = prop.getProperty(Const.MinGWRelative);
             
             if (tmp != null && !"".equals(tmp)) {
@@ -86,7 +87,7 @@ public class Config {
     public static void save() {
         try {
             // 文件输出流 
-            FileOutputStream fos = new FileOutputStream(FileFinder.findFile("config.properties"));
+            FileOutputStream fos = new FileOutputStream(FileFinder.findFile("config/config.properties"));
             // 将Properties集合保存到流中 
             prop.store(fos, "update config.properties");
             fos.close();// 关闭流 
@@ -127,9 +128,9 @@ public class Config {
 
         if (language.equals("c") || language.equals("cpp") || language.equals("c++")) //返回各种语言的编译器地址
         {
-            dir = System.getProperty("user.dir") + Const.RelativeMinGWCompileDir;
+            dir = System.getProperty("user.dir") + Const.MinGWDir;
         } else if (language.equals("java")) {
-            dir = System.getProperty("user.dir") + Const.RelativeJavaCompileDir;
+            dir = System.getProperty("user.dir") + Const.JavaCompilerDir;
         }
         return dir;
     }

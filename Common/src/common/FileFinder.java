@@ -14,9 +14,38 @@ import java.util.List;
  * @author Administrator
  */
 public class FileFinder {
-    
+        private static String findFilePath(String fileName) {
+        String currentPath = System.getProperty("user.dir");
+        String configFile = fileName;
+
+        // Try to find config.xml in the current directory
+        File currentDirConfigFile = new File(currentPath, configFile);
+        System.out.print(currentDirConfigFile.getAbsoluteFile());
+        if (currentDirConfigFile.exists()) {
+            return currentDirConfigFile.getAbsolutePath();
+        }
+
+        // If not found, recursively search in parent directories
+        return findInParentDirectory(new File(currentPath), configFile);
+    }
+
+    private static String findInParentDirectory(File directory, String configFile) {
+        File configFileInParent = new File(directory, configFile);
+        if (configFileInParent.exists()) {
+            return configFileInParent.getAbsolutePath();
+        }
+
+        // If not found and not the root directory, recursively search in parent
+        File parentDirectory = directory.getParentFile();
+        if (parentDirectory != null) {
+            return findInParentDirectory(parentDirectory, configFile);
+        }
+
+        // If reached the root directory and still not found, return null
+        return null;
+    }
     public static File findFile(String fileName){
-        return new File("config/"+fileName);
+        return new File(findFilePath(fileName));
     }
     
     public static boolean isExistFile(String fileName){

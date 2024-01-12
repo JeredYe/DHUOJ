@@ -8,10 +8,13 @@ package gui;
 import cache.ProblemsCachManager;
 import common.Config;
 import common.FileFinder;
+import common.LangSelector;
 import java.awt.Component;
+import java.awt.Desktop;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.xml.namespace.QName;
 import share.gui.NewCompileSetting;
@@ -88,7 +91,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         threadManagerTabb = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -109,6 +112,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         buttonCompilersConfig1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,7 +149,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel7.setText("线程数量:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4" }));
 
         jLabel15.setText("一般信息:");
 
@@ -267,6 +271,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("查看配置文件");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -279,6 +290,8 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(buttonCompilersConfig)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonCompilersConfig1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -325,7 +338,8 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(buttonCompilersConfig)
                         .addComponent(distributorIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)
-                        .addComponent(buttonCompilersConfig1))
+                        .addComponent(buttonCompilersConfig1)
+                        .addComponent(jButton2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(distributorPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -440,7 +454,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (tmp == null || "".equals(tmp) || !FileFinder.isExistFile(tmp + File.separator + "gcc.exe") || !FileFinder.isExistFile(tmp + File.separator + "g++.exe")) {
             //弹窗设置保存
 
-            JOptionPane.showMessageDialog(this, "请C语言先配置编译器");
+            JOptionPane.showMessageDialog(this, "请先配置C语言编译器");
             NewCompileSetting window = new NewCompileSetting("c", this, true);
             window.setVisible(true);
             return false;
@@ -449,7 +463,7 @@ public class MainFrame extends javax.swing.JFrame {
         tmp = Config.getCompilerDir("java");
         if (tmp == null || "".equals(tmp) || !FileFinder.isExistFile(tmp + File.separator + "javac.exe")) {
 
-            JOptionPane.showMessageDialog(this, "请先Java配置编译器");
+            JOptionPane.showMessageDialog(this, "请先配置Java编译器");
             NewCompileSetting window = new NewCompileSetting("java", this, true);
             window.setVisible(true);
             return false;
@@ -476,6 +490,17 @@ public class MainFrame extends javax.swing.JFrame {
         NewCompileSetting javaConfig = new NewCompileSetting("java", this, true);
         javaConfig.setVisible(true);
     }//GEN-LAST:event_buttonCompilersConfig1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Desktop desktop = Desktop.getDesktop();
+
+            try {
+                // 打开文件
+                desktop.open(new File(LangSelector.getConfigPath()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void loadConfig() {
         this.distributorIP.setText(Config.getValue("distributorIP"));
@@ -560,6 +585,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField distributorIP;
     private javax.swing.JTextField distributorPort;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     javax.swing.JComboBox<String> jComboBox1;
     javax.swing.JLabel jLabel14;

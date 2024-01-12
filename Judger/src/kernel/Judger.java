@@ -120,7 +120,7 @@ public class Judger {
         } else if (language.equals("java")) {
             compileCommand += "\"" + Config.getCompilerDir(language) + File.separator + "javac\" " + sourceFile; //todoÎÄ¼þÂ·¾¶
         } else if (language.equals("cpp")||language.equals("c++")) {
-            compileCommand += "\"" + Config.getCompilerDir(language) + File.separator + "g++\" -Wall -g -std=c++0x -c "
+            compileCommand += "\"" + Config.getCompilerDir(language) + File.separator + "g++\" -Wall -g -std=c++14 -c "
                     + "\""+sourceFile+"\"" + " -o " + "\""+Config.getTargetPath()+ File.separator+"output"+ File.separator + "Main"+".o"+"\"\n";
         } else {
             CompileInfo.info = "this programing language is not support!!!";
