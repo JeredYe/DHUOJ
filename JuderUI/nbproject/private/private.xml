@@ -21,14 +21,6 @@
             <file>file:/E:/ojNew/JuderUI/src/myjdom/XmlToProblemBean.java</file>
             <file>file:/E:/ojNew/JuderUI/src/data/MainForNet.java</file>
         </group>
-        <group>
-            <file>file:/Z:/project/OJ/JuderUI/src/data/MainForNet.java</file>
-            <file>file:/Z:/project/OJ/JuderUI/src/cache/BaseCache.java</file>
-            <file>file:/Z:/project/OJ/JuderUI/src/swingworker/MySwingWorker.java</file>
-            <file>file:/Z:/project/OJ/JuderUI/src/gui/MainFrame.java</file>
-            <file>file:/Z:/project/OJ/JuderUI/src/data/JudgeFromQueue.java</file>
-            <file>file:/Z:/project/OJ/JuderUI/src/gui/Control.java</file>
-            <file>file:/Z:/project/OJ/JuderUI/src/web/Webservice.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
