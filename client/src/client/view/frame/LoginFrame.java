@@ -31,7 +31,6 @@ import java.util.List;
 import javax.xml.namespace.QName;
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.service.factory.ServiceConstructionException;
-
 /**
  *
  * @author ytxlo

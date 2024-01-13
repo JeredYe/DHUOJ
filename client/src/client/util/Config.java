@@ -26,7 +26,7 @@ public class Config {
     public static final Properties prop= new Properties();
     static{
         try {
-            InputStream in = new FileInputStream(common.FileFinder.findFile("Config.properties"));
+            InputStream in = new FileInputStream(common.FileFinder.findFile("config/config.properties"));
             prop.load(in);
             in.close();
             IPaddress = prop.getProperty("IPaddress");
@@ -62,7 +62,7 @@ public class Config {
     }
     public static void save(){
         try {
-            FileOutputStream fos = new FileOutputStream(common.FileFinder.findFile("Config.properties"));
+            FileOutputStream fos = new FileOutputStream(common.FileFinder.findFile("config/config.properties"));
             prop.store(fos, "update Config.properties");
             fos.close();
         } catch (FileNotFoundException ex) {
