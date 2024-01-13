@@ -86,9 +86,9 @@ public class MainFrame extends JFrame implements ColorChange {
     private JPanel NorthPanel;
     private JLabel jl_south;
 
-    private JMenu JM_CompileInfo;
-    private JMenuItem cCPlus_CompileInfo;
-    private JMenuItem java_CompileInfo;
+//    private JMenu JM_CompileInfo;
+//    private JMenuItem cCPlus_CompileInfo;
+//    private JMenuItem java_CompileInfo;
     private JMenuItem JM_return;
     private JMenuItem JM_UpdateProblem;
     private JMenuItem JM_UpdateStatus;
@@ -150,8 +150,10 @@ public class MainFrame extends JFrame implements ColorChange {
         this.TP_Main = new JTabbedPane();
         this.JPT_Result = new JPanel();
         this.JPT_Submit = new JPanel();
-        this.cCPlus_CompileInfo = new JMenuItem("C/C++编译器");
-        this.java_CompileInfo = new JMenuItem("Java编译器");
+        
+//        this.cCPlus_CompileInfo = new JMenuItem("C/C++编译器");
+//        this.java_CompileInfo = new JMenuItem("Java编译器");
+        
         this.JB_return = new JButton();
         //this.JCB_Model = new JComboBox();
         this.UpdateProblem = new JButton();
@@ -172,7 +174,7 @@ public class MainFrame extends JFrame implements ColorChange {
 
         this.freshMenu = new JMenu("同步");
         this.systemMenu = new JMenu("系统");
-        this.JM_CompileInfo = new JMenu("编译器设置");
+//        this.JM_CompileInfo = new JMenu("编译器设置");
 
         this.JM_return = new JMenuItem("返回考试列表");
         this.JM_UpdateProblem = new JMenuItem("下载全部题目");
@@ -203,27 +205,29 @@ public class MainFrame extends JFrame implements ColorChange {
         this.NorthPanel.add(this.TP_time, BorderLayout.EAST);
         this.NorthPanel.add(this.jl_south, BorderLayout.WEST);
 
-        JM_CompileInfo.add(cCPlus_CompileInfo);
-        cCPlus_CompileInfo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                NewCompileSetting config = new NewCompileSetting("c", MainFrame.this, true);
-                config.setVisible(true);
-            }
-        });
-        JM_CompileInfo.add(java_CompileInfo);
-        java_CompileInfo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                NewCompileSetting config = new NewCompileSetting("java", MainFrame.this, true);
-                config.setVisible(true);
-            }
-        });
+//        JM_CompileInfo.add(cCPlus_CompileInfo);
+//        cCPlus_CompileInfo.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                NewCompileSetting config = new NewCompileSetting("c", MainFrame.this, true);
+//                config.setVisible(true);
+//            }
+//        });
+//        JM_CompileInfo.add(java_CompileInfo);
+//        java_CompileInfo.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                NewCompileSetting config = new NewCompileSetting("java", MainFrame.this, true);
+//                config.setVisible(true);
+//            }
+//        });
+        
         freshMenu.add(JM_UpdateProblem);
         freshMenu.add(JM_UpdateStatus);
         freshMenu.add(JM_UpdateExam);
         //freshMenu.add(JM_return);
-        systemMenu.add(JM_CompileInfo);
+       // systemMenu.add(JM_CompileInfo);
+        
         systemMenu.add(JM_Exit);
         menubar.setLayout(new FlowLayout(FlowLayout.LEFT));
         MenuPanel.add(this.menubar, BorderLayout.WEST);
@@ -316,6 +320,7 @@ public class MainFrame extends JFrame implements ColorChange {
 //                      // config.setVisible(true);
 //            }
 //        });
+        
         this.JB_return.setText("返回考试列表");
         this.JB_return.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {

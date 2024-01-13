@@ -178,7 +178,6 @@ public class CodePanel extends JPanel implements ActionListener {
         this.jLabel5 = new JLabel("学生测试输出");
         this.jLabel6 = new JLabel("运行结果:");
         this.jLabel7 = new JLabel("编程语言:");
-        //this.jLabel7 = new JLabel("");
         this.jpanel1 = new JPanel();
         this.jpanel2 = new JPanel();
         this.jpanel3 = new JPanel();
@@ -201,12 +200,12 @@ public class CodePanel extends JPanel implements ActionListener {
         JEP_Code.setCodeFoldingEnabled(true);
         JEP_Code.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, fontsize));
         RTextScrollPane codePanel = new RTextScrollPane(JEP_Code);
-        //codePanel.setBorder(BorderFactory.createEmptyBorder());
+        
 
         this.Top_code.setLayout(new BorderLayout());
         this.jSplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 
-        //this.jSplitPane.setDividerLocation(0.7);
+        
         this.jSplitPane.setResizeWeight(0.8);
         this.jSplitPane.setDividerSize(7);
         this.jSplitPane.setOneTouchExpandable(true);
@@ -456,6 +455,8 @@ public class CodePanel extends JPanel implements ActionListener {
         } else if ("C++".equals(lan)) {
             language = "C++";
             JEP_Code.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_CPLUSPLUS);
+        } else if ("python".equals(lan)){
+            JEP_Code.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_PYTHON);
         }
     }
 
@@ -1099,6 +1100,22 @@ public class CodePanel extends JPanel implements ActionListener {
                 return false;
             }
         }
+        
+         if (language.toLowerCase().equals("python")) {
+            tmp = Config.getCompilerDir("python");
+            if (tmp == null || "".equals(tmp) || !FileFinder.isExistFile(tmp + File.separator + "javac.exe")) {
+                //弹窗设置保存
+                Object t = this.getParent();
+                while (!(t instanceof MainFrame)) {
+                    t = ((Component) t).getParent();
+                }
+                JOptionPane.showMessageDialog(this, "请先配置编译器");
+                NewCompileSetting window = new NewCompileSetting(language, (MainFrame) t, true);
+                window.setVisible(true);
+                return false;
+            }
+        }
+         
         return true;
     }
 
