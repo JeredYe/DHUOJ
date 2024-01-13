@@ -5,8 +5,9 @@
         <group name="最新版本代码"/>
         <group>
             <file>file:/K:/OJ/client/src/client/service/web/Webservice.java</file>
-            <file>file:/K:/OJ/client/src/client/test/Test1.java</file>
+            <file>file:/K:/OJ/client/src/client/view/frame/LoginFrame.java</file>
             <file>file:/K:/OJ/client/nbproject/jaxws-build.xml</file>
+            <file>file:/K:/OJ/client/build/generated-sources/jax-ws/edu/dhu/ws/OJWS.java</file>
         </group>
     </open-files>
 </project-private>
