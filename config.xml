@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <languages>
-  <language id="C++">
+  <language id="C++" alias="c++,c,cpp,CPP,C">
     <compiler name="MinGW">
       <path>K:\Dev-Cpp\MinGW64\bin</path>
       <compileCmd>g++.exe -Wall -g -std=c++14 -c $sourceFile$ -o $objFile$</compileCmd>
@@ -18,7 +18,7 @@
       <runCmd>msvc</runCmd>
     </compiler>
   </language>
-  <language id="Java">
+  <language id="Java" alias="java,JAVA">
     <compiler name="JDK8">
       <path>C:/JDK8/bin</path>
       <compileCmd>g++.exe -Wall -g -std=c++14 -c $sourceFile$ -o $objFile$</compileCmd>
@@ -37,7 +37,7 @@
       </runCmd>
     </compiler>
   </language>
-  <language id="Python">
+  <language id="Python" alias="python,PYTHON">
     <compiler name="Python2">
       <path>C:/MinGW/bin/</path>
       <compileCmd>g++.exe -Wall -g -std=c++14 -c $sourceFile$ -o $objFile$</compileCmd>
