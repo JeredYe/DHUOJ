@@ -63,7 +63,7 @@ public class Config {
     public static void save(){
         try {
             FileOutputStream fos = new FileOutputStream(common.FileFinder.findFile("config/config.properties"));
-            prop.store(fos, "update Config.properties");
+            prop.store(fos, "update config/config.properties");
             fos.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Config.class.getName()).log(Level.SEVERE, null, ex);
