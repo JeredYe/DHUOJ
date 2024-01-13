@@ -21,6 +21,10 @@
             <file>file:/E:/ojNew/JuderUI/src/myjdom/XmlToProblemBean.java</file>
             <file>file:/E:/ojNew/JuderUI/src/data/MainForNet.java</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/K:/OJ/JuderUI/src/cache/BaseCache.java</file>
+            <file>file:/K:/OJ/JuderUI/src/gui/MainFrame.java</file>
+            <file>file:/K:/OJ/JuderUI/src/cache/ProblemsCachManager.java</file>
+        </group>
     </open-files>
 </project-private>
