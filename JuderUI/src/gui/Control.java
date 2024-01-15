@@ -108,8 +108,9 @@ public class Control {
     //设置停止文本
     public static void setStoptxt() {
         runflag = 0;  //设置线程状态关闭
-        mainFrame.buttonCompilersConfig.setEnabled(true);//恢复编译器配置按钮
-        mainFrame.buttonCompilersConfig1.setEnabled(true);
+//        mainFrame.buttonCompilersConfig.setEnabled(true);//恢复编译器配置按钮
+//        mainFrame.buttonCompilersConfig1.setEnabled(true);
+         mainFrame.jButton2.setEnabled(true);//设置编辑配置文件
         mainFrame.jLabel14.setText("已关闭 ");//更新UI状态
         
     }

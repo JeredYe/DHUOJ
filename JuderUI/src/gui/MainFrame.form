@@ -134,8 +134,8 @@
                                   <Component id="buttonCompilersConfig" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="distributorIP" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="buttonCompilersConfig1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonCompilersConfig1" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -184,6 +184,7 @@
                 <Component class="javax.swing.JButton" name="buttonCompilersConfig">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="C/C++&#x7f16;&#x8bd1;&#x5668;&#x914d;&#x7f6e;"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCompilersConfigActionPerformed"/>
@@ -510,6 +511,7 @@
                 <Component class="javax.swing.JButton" name="buttonCompilersConfig1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="JAVA&#x7f16;&#x8bd1;&#x5668;&#x914d;&#x7f6e;"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCompilersConfig1ActionPerformed"/>
@@ -520,11 +522,14 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&#x67e5;&#x770b;&#x914d;&#x7f6e;&#x6587;&#x4ef6;"/>
+                    <Property name="text" type="java.lang.String" value="&#x7f16;&#x8f91;&#x914d;&#x7f6e;&#x6587;&#x4ef6;"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

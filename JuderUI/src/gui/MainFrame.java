@@ -15,6 +15,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.xml.namespace.QName;
 import share.gui.NewCompileSetting;
@@ -124,6 +126,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         buttonCompilersConfig.setText("C/C++编译器配置");
+        buttonCompilersConfig.setEnabled(false);
         buttonCompilersConfig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCompilersConfigActionPerformed(evt);
@@ -265,13 +268,14 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         buttonCompilersConfig1.setText("JAVA编译器配置");
+        buttonCompilersConfig1.setEnabled(false);
         buttonCompilersConfig1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCompilersConfig1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("查看配置文件");
+        jButton2.setText("编辑配置文件");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -338,8 +342,8 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(buttonCompilersConfig)
                         .addComponent(distributorIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)
-                        .addComponent(buttonCompilersConfig1)
-                        .addComponent(jButton2))
+                        .addComponent(jButton2)
+                        .addComponent(buttonCompilersConfig1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(distributorPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -410,13 +414,18 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonStopActionPerformed
 
     private void buttonCompilersConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCompilersConfigActionPerformed
-
-        NewCompileSetting cConfig = new NewCompileSetting("c", this, true);
-        cConfig.setVisible(true);
-        Config.freshConfig();
+         JOptionPane.showMessageDialog(this, "请直接在配置文件中修改！");
+//        NewCompileSetting cConfig = new NewCompileSetting("c", this, true);
+//        cConfig.setVisible(true);
+//        Config.freshConfig();
     }//GEN-LAST:event_buttonCompilersConfigActionPerformed
 
     private void button_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_StartActionPerformed
+        try {
+            LangSelector.init();
+        } catch (Exception ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }//刷新配置文件
         if (!checkForCompile()) {
             return;
         }
@@ -426,9 +435,9 @@ public class MainFrame extends javax.swing.JFrame {
         if (Control.startJudgerForNet(ip, Integer.parseInt(port))) {
             this.jLabel14.setText("- -");
             //线程开始后，不允许编辑编译器
-            this.buttonCompilersConfig.setEnabled(false);
-            this.buttonCompilersConfig1.setEnabled(false);
-            
+//            this.buttonCompilersConfig.setEnabled(false);
+//            this.buttonCompilersConfig1.setEnabled(false);
+            this.jButton2.setEnabled(false);//设置编辑配置文件
             Control.setRunStatus();
             this.button_Start.setEnabled(false);
             this.buttonStop.setEnabled(true);
@@ -455,8 +464,8 @@ public class MainFrame extends javax.swing.JFrame {
             //弹窗设置保存
 
             JOptionPane.showMessageDialog(this, "请先配置C语言编译器");
-            NewCompileSetting window = new NewCompileSetting("c", this, true);
-            window.setVisible(true);
+//            NewCompileSetting window = new NewCompileSetting("c", this, true);
+//            window.setVisible(true);
             return false;
         }
 
@@ -464,8 +473,8 @@ public class MainFrame extends javax.swing.JFrame {
         if (tmp == null || "".equals(tmp) || !FileFinder.isExistFile(tmp + File.separator + "javac.exe")) {
 
             JOptionPane.showMessageDialog(this, "请先配置Java编译器");
-            NewCompileSetting window = new NewCompileSetting("java", this, true);
-            window.setVisible(true);
+//            NewCompileSetting window = new NewCompileSetting("java", this, true);
+//            window.setVisible(true);
             return false;
         }
         return true;
@@ -487,8 +496,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void buttonCompilersConfig1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCompilersConfig1ActionPerformed
         // TODO add your handling code here:
-        NewCompileSetting javaConfig = new NewCompileSetting("java", this, true);
-        javaConfig.setVisible(true);
+        JOptionPane.showMessageDialog(this, "请直接在配置文件中修改！");
+//        NewCompileSetting javaConfig = new NewCompileSetting("java", this, true);
+//        javaConfig.setVisible(true);
     }//GEN-LAST:event_buttonCompilersConfig1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -497,6 +507,7 @@ public class MainFrame extends javax.swing.JFrame {
             try {
                 // 打开文件
                 desktop.open(new File(LangSelector.getConfigPath()));
+//                desktop.open(FileFinder.findFile("ConfigEditor.exe")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -585,7 +596,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField distributorIP;
     private javax.swing.JTextField distributorPort;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     javax.swing.JComboBox<String> jComboBox1;
     javax.swing.JLabel jLabel14;

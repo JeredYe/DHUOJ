@@ -12,3 +12,11 @@ clientUpdater/dist/README.TXT
 Common/dist/Common.jar
 Judger/dist/Judger.jar
 Judger/dist/lib/Common.jar
+*.class
+*.properties
+*.html
+*.cpp
+*.jar
+*.class
+*.zip
+*.jar
