@@ -16,15 +16,14 @@ import org.w3c.dom.Document;
  * @author Jared Ye
  */
 public abstract class LangSelector {
-
+    //
     private static String ConfigPath="";
     private static Document Data;
     public static boolean Loaded=false;
     private static XPath xpath = XPathFactory.newInstance().newXPath();
     static {
         try {
-            ConfigPath=findConfigFilePath();
-            Data = init(ConfigPath);
+            init();
             Loaded=true;
         } catch (Exception e) {
             //初始化的时候没有读到config.xml
@@ -78,16 +77,18 @@ public abstract class LangSelector {
 
 
 
-    public static Document init(String ConfigPath) throws Exception {
+    public static Document init() throws Exception {
         // 创建Document对象
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setValidating(false);
         DocumentBuilder db = dbf.newDocumentBuilder();
         // 创建XPath对象
-        LangSelector.ConfigPath =ConfigPath;
+        LangSelector.ConfigPath =findConfigFilePath();
         //JOptionPane.showMessageDialog(null,"当前工作目录:"+ConfigPath);
 //        LangSelector.ConfigPath=new File(LangSelector.ConfigPath).getAbsolutePath();
-        return db.parse(LangSelector.ConfigPath);
+        Document doc=db.parse(new File(LangSelector.ConfigPath));
+        Data=doc;
+        return doc;
     }
 
 
