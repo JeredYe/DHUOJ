@@ -58,8 +58,8 @@ public class Judger {
     
     public Boolean checkForCompiler(){
         
-        File file1 = new File(Config.getCompilerDir("c") + File.separator + "gcc.exe");
-        File file2 = new File(Config.getCompilerDir("c") + File.separator + "gcc.exe");
+        File file1 = new File(Config.getCompilerDir("c",null) + File.separator + "gcc.exe");
+        File file2 = new File(Config.getCompilerDir("c",null) + File.separator + "gcc.exe");
         if (!file1.exists() || !file2.exists()) {
             System.out.println("±‡“Î∆˜Œ¥’“µΩ");
             isFound = false;

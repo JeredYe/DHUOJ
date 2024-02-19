@@ -1,15 +1,22 @@
 package common;
 import java.io.File;
+import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.util.HashMap;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 /**
  *
@@ -90,7 +97,24 @@ public abstract class LangSelector {
         Data=doc;
         return doc;
     }
+    public static List<String> getCompilerNames(String languageName){
+        ArrayList<String>arrayListStr=new ArrayList<>();
+        try {
+            String exp="/languages/language"+ "[@id='" +languageName+ "']"+"//compiler";
+            NodeList nodeList = (NodeList) xpath.evaluate(exp,Data,XPathConstants.NODESET);
+            
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Node childNode = nodeList.item(i);
+                arrayListStr.add(childNode.getAttributes().getNamedItem("name").getTextContent());
+                // 如果需要获取属性值，可以使用 childNode.getAttributes().getNamedItem("attributeName").getTextContent()
+            }
+            return arrayListStr;
 
+        } catch (XPathExpressionException ex) {
+            Logger.getLogger(LangSelector.class.getName()).log(Level.SEVERE, null, ex);
+            return arrayListStr;
+        }
+    }
 
     public static String getCompilerPath(String languageName,String compilerName) {
         if(compilerName==null)compilerName=getDefaultCompilerName(languageName);
