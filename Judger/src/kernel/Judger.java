@@ -9,6 +9,7 @@ import MyCache.Shared;
 import common.Config;
 import resultData.RunInfo;
 import common.Const;
+import common.LangSelector;
 //import gui.Control;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -110,17 +111,19 @@ public class Judger {
         String linkCommand = Config.getCompilerDir(language) + File.separator + "g++ " +"\""+ Config.getTargetPath() +File.separator+"output"+File.separator+  "Main"+".o"+"\"" + " -o " +"\""+ Config.getTargetPath()+File.separator+"output"+File.separator + "Main"+".exe"+"\"\n";      
         return linkCommand;
     }
+    /////////////////////////////////////////////////////////////////////////////////////////////////TODO
 //mingw32-g++.exe -Wall -g  -c E:\Downloads\aaa\aa.cpp -o obj\Debug\aa.o
 //mingw32-g++.exe  -o bin\Debug\aaa.exe obj\Debug\aa.o   
     private String compileCommand(String language) {
         String compileCommand = "";
-        language = language.toLowerCase();
+        language = language.toLowerCase();//todo
         if (language.equals("c")) {
             compileCommand += "\"" + Config.getCompilerDir(language) + File.separator + "gcc\" -c " + "\""+sourceFile +"\""+ " -o " +"\""+Config.getTargetPath()+ File.separator+"output"+ File.separator + "Main"+".o"+"\"\n";
         } else if (language.equals("java")) {
             compileCommand += "\"" + Config.getCompilerDir(language) + File.separator + "javac\" " + sourceFile; //todoÎÄ¼þÂ·¾¶
         } else if (language.equals("cpp")||language.equals("c++")) {
-            compileCommand += "\"" + Config.getCompilerDir(language) + File.separator + "g++\" -Wall -g -std=c++14 -c "
+            //compileCommand +=Config.getCompilerDir(language) + File.separator +LangSelector.getCompileCommand("C++",null);
+            compileCommand += "\"" + Config.getCompilerDir(language) + File.separator + "g++\" -Wall -g -c -std=c++14 "//todo:C++14
                     + "\""+sourceFile+"\"" + " -o " + "\""+Config.getTargetPath()+ File.separator+"output"+ File.separator + "Main"+".o"+"\"\n";
         } else {
             CompileInfo.info = "this programing language is not support!!!";

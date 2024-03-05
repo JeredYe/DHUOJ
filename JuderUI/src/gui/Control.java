@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Queue;
 import javax.swing.JEditorPane;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.text.Element;
 import javax.xml.namespace.QName;
 import myjdom.model.Solution;
@@ -124,6 +125,14 @@ public class Control {
     }
 
     //
+   public static JTextField getDistributorField(int a) {
+        switch (a) {
+            case 0:
+                return mainFrame.distributorIP;
+            default:
+                return mainFrame.distributorPort;
+        }
+    }
     public static JEditorPane getJudgeInfoEditorPane(int a) {
         switch (a) {
             case 1:
