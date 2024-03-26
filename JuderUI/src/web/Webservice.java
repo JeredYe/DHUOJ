@@ -55,7 +55,7 @@ public class Webservice implements java.rmi.Remote{
         reference.setApplication(application);
         reference.setInterface(OJWS.class);
         reference.setUrl(url); // 设置远程服务的 URL
-
+        reference.setTimeout(3000);
         // 初始化
         return reference.get();
     }
@@ -71,8 +71,10 @@ public class Webservice implements java.rmi.Remote{
             JEditorPane infoPane=getJudgeInfoEditorPane(0);
             if(!existDubbo&&infoPane!=null)
                 infoPane.setText(infoPane.getText()+LocalTime.now().toString()+"正在请求Dubbo服务...\n");
-            //String url = "dubbo://219.228.76.122:20880/edu.dhu.ws.OJWS";//todo:需要改成用户自己输入
+            
             dubboPort = initDubboPort(url);
+            //infoPane.setText(infoPane.getText()+LocalTime.now().toString()+"测试test请求：..."+dubboPort.test("aa")+"\n");
+            
         }
         catch(Exception e){
                  JEditorPane infoPane=getJudgeInfoEditorPane(1);

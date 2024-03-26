@@ -20,3 +20,9 @@ Judger/dist/lib/Common.jar
 *.class
 *.zip
 *.jar
+client/nbproject/private/private.properties
+*.class
+*.log
+*.exe
+*.class
+*.jar

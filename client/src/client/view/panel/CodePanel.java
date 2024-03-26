@@ -487,7 +487,17 @@ public class CodePanel extends JPanel implements ActionListener {
             CodePanel.this.toLoad = codeString;
             System.out.println("-----" + codeString);
             Float time_limit = Float.parseFloat(Control.getMainFrame().getInformation(String.valueOf(submitProblemId)).getTime_limit());
-            Answer answer = new Process().Judge(language, codeString, time_limit+2, testCaseBeans); //loss of timelimit
+            
+            
+            
+            
+            
+            
+            
+            //////////todo:◊‘÷˜—°‘Ò±‡“Î∆˜
+            String compiler="";
+            
+            Answer answer = new Process().Judge(language,compiler, codeString, time_limit+2, testCaseBeans); //loss of timelimit
             if (answer.getStatus().equals("NF")) {
                 JOptionPane.showMessageDialog(CodePanel.this,
                         "±‡“Î∆˜Œ¥’“µΩ£¨«ÎºÏ≤È±‡“Î∆˜…Ë÷√", "Ã·Ωª ß∞‹", JOptionPane.ERROR_MESSAGE
@@ -693,7 +703,14 @@ public class CodePanel extends JPanel implements ActionListener {
         temp.setOutput(testCaseAns);
         testCaseBeans.add(temp);
         //System.out.println(language+JEP_Code.getText()+to+testCaseBeans);
-        outAll = new Process().Judge(language, JEP_Code.getText(), to+2, testCaseBeans);
+        
+        
+        
+        
+        
+        
+        String compiler="";
+        outAll = new Process().Judge(language,compiler, JEP_Code.getText(), to+2, testCaseBeans);
 
         //System.out.println(JEP_Code.getText());
         //System.out.println(outAll.getUsersOutput()[0]);

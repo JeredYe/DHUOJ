@@ -228,7 +228,12 @@ public class Control {
     public static String getChooseDirectory() {
         return getChooseDirectory("a");
     }
-
+    public static String getCppCompilerName(){
+        return mainFrame.getSelectedCppCompilerName();
+    }
+    public static String getJavaCompilerName(){
+        return mainFrame.getSelectedJavaCompilerName();
+    }
     public static String getChooseDirectory(String lan) {
 
         try {

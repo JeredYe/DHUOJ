@@ -6,17 +6,21 @@
 package data;
 
 import gui.Control;
+import static gui.Control.getJudgeInfoEditorPane;
 import java.awt.EventQueue;
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
+import javax.swing.JEditorPane;
 import myjdom.XmlToSolution;
 import myjdom.model.Solution;
 import myjdom.model.Solutions;
 import myjdom.model.ProblemBean;
 import persistence.oj_beans.ProblemTestCaseBean;
 import web.Webservice;
+import static web.Webservice.existDubbo;
 
 /**
  *
@@ -48,6 +52,7 @@ public class MainForNet extends Thread {
                     continue;
                 }
                 System.out.println("开始获取solution");
+
                 List<Solution> list = getWebServiceSolutions();
                 System.out.println("获取slolutin数量"+list.size());
 //          getServerObject();  
@@ -91,6 +96,7 @@ public class MainForNet extends Thread {
 
     private List<Solution> getWebServiceSolutions() throws Exception {
         Control.setWebService(new Webservice(new URL(Control.getUrl()), Control.getQname()));
+        
         String xml = Control.getWebService().getSolutions(5);
         XmlToSolution xts = new XmlToSolution();
         xts.readXmlString(xml);

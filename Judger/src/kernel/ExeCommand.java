@@ -223,7 +223,7 @@ public class ExeCommand {
             errorInfoWrite.join();
             JudgerInfo.exitValue = result;
             JudgerInfo.info = infoWrite.returnInfo();
-            JudgerInfo.errorInfo = errorInfoWrite.returnInfo();
+            JudgerInfo.errorInfo = errorInfoWrite.returnInfo()+JudgerInfo.info;
 
             return result;
         } catch (Exception ex) {

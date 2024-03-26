@@ -283,17 +283,40 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setText("C/C++±‡“Î∆˜:");
+        jLabel8.setFont(new java.awt.Font("ÀŒÃÂ", 0, 10)); // NOI18N
+        jLabel8.setText("ƒ¨»œC/C++±‡“Î∆˜:");
 
         comboCppCompiler.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboCppCompiler.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboCppCompilerItemStateChanged(evt);
+            }
+        });
+        comboCppCompiler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCppCompilerActionPerformed(evt);
+            }
+        });
 
-        jLabel10.setText("Java±‡“Î∆˜:");
+        jLabel10.setFont(new java.awt.Font("ÀŒÃÂ", 0, 10)); // NOI18N
+        jLabel10.setText("ƒ¨»œJava±‡“Î∆˜:");
 
         comboJavaCompiler.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboJavaCompiler.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboJavaCompilerItemStateChanged(evt);
+            }
+        });
+        comboJavaCompiler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboJavaCompilerActionPerformed(evt);
+            }
+        });
 
         jCheckBox2.setFont(new java.awt.Font("ÀŒÃÂ", 2, 12)); // NOI18N
         jCheckBox2.setForeground(new java.awt.Color(0, 204, 102));
-        jCheckBox2.setText("dubbo");
+        jCheckBox2.setSelected(true);
+        jCheckBox2.setText("Dubbo");
         jCheckBox1.setToolTipText("œ¬¥Œ≥Ã–Ú∆Ù∂Ø ±£¨◊‘∂Øø™ º≤√≈–");
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -358,7 +381,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(threadManagerTabb, javax.swing.GroupLayout.PREFERRED_SIZE, 955, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)))
                 .addGap(21, 21, 21)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE))
+                .addComponent(jSeparator1))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,6 +462,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (Control.stopJudgerForNet()) {
             this.button_Start.setEnabled(true);
             this.buttonStop.setEnabled(false);
+            this.jCheckBox2.setEnabled(true);
             this.jLabel14.setText("’˝‘⁄πÿ±’");
             this.button_StartThread.setEnabled(false);
         }
@@ -466,6 +490,7 @@ public class MainFrame extends javax.swing.JFrame {
             this.button_Start.setEnabled(false);
             this.buttonStop.setEnabled(true);
             this.button_StartThread.setEnabled(true);
+            this.jCheckBox2.setEnabled(false);
             Webservice.existDubbo=false;
 //            if(!Dubboservice.running){
 //                Dubboservice.main(null);
@@ -489,10 +514,10 @@ public class MainFrame extends javax.swing.JFrame {
     private boolean checkForCompile() {
         String tmp = null;
         tmp = Config.getCompilerDir("c",comboCppCompiler.getSelectedItem().toString());
-        if (tmp == null || "".equals(tmp) || !FileFinder.isExistFile(tmp + File.separator + "gcc.exe") || !FileFinder.isExistFile(tmp + File.separator + "g++.exe")) {
+        if (tmp == null || "".equals(tmp) || !FileFinder.isExistFile(tmp + File.separator + "gcc.exe")&&!FileFinder.isExistFile(tmp + File.separator + "g++.exe")&&!FileFinder.isExistFile(tmp + File.separator + "/bin/cl.exe")) {
             //µØ¥∞…Ë÷√±£¥Ê
 
-            JOptionPane.showMessageDialog(this, "«Îœ»≈‰÷√C”Ô—‘±‡“Î∆˜");
+            JOptionPane.showMessageDialog(this, "«Îœ»≈‰÷√C/C++±‡“Î∆˜");
 //            NewCompileSetting window = new NewCompileSetting("c", this, true);
 //            window.setVisible(true);
             return false;
@@ -507,6 +532,12 @@ public class MainFrame extends javax.swing.JFrame {
             return false;
         }
         return true;
+    }
+    public String getSelectedCppCompilerName(){
+        return comboCppCompiler.getSelectedItem().toString();
+    }
+    public String getSelectedJavaCompilerName(){
+        return comboJavaCompiler.getSelectedItem().toString();
     }
     private void button_StartThreadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_StartThreadActionPerformed
 
@@ -538,6 +569,33 @@ public class MainFrame extends javax.swing.JFrame {
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
        Webservice.ENABLE_DUBBO=jCheckBox2.isSelected();
     }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void comboCppCompilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCppCompilerActionPerformed
+        try{
+            LangSelector.setDefaultCompiler("C++", comboCppCompiler.getSelectedItem().toString());
+        }
+        catch(Exception e){
+            //e.printStackTrace();
+        }
+    }//GEN-LAST:event_comboCppCompilerActionPerformed
+
+    private void comboJavaCompilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboJavaCompilerActionPerformed
+
+        try{
+            LangSelector.setDefaultCompiler("Java", comboJavaCompiler.getSelectedItem().toString());
+        }
+        catch(Exception e){
+        
+        }
+    }//GEN-LAST:event_comboJavaCompilerActionPerformed
+
+    private void comboCppCompilerItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboCppCompilerItemStateChanged
+        //LangSelector.setDefaultCompiler("C++", comboCppCompiler.getSelectedItem().toString());
+    }//GEN-LAST:event_comboCppCompilerItemStateChanged
+
+    private void comboJavaCompilerItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboJavaCompilerItemStateChanged
+        //LangSelector.setDefaultCompiler("Java", comboJavaCompiler.getSelectedItem().toString());
+    }//GEN-LAST:event_comboJavaCompilerItemStateChanged
 
     private void loadConfig() {
         this.distributorIP.setText(Config.getValue("distributorIP"));

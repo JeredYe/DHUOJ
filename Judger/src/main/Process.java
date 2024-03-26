@@ -96,7 +96,7 @@ public class Process {
     }
 
     //WebService评判
-    public Answer Judge(String solutionId, String problemId, String language, String sourceCode, Float timeOut, List<ProblemTestCaseBean> testCaseBeans, Consumer<String> con) {
+    public Answer Judge(String solutionId, String problemId, String language,String compiler, String sourceCode, Float timeOut, List<ProblemTestCaseBean> testCaseBeans, Consumer<String> con) {
         CompileInfo.init();
         RunInfo.init();
         this.con = con;
@@ -108,6 +108,7 @@ public class Process {
         this.judger = new Judger();
         Boolean is = this.judger.checkForCompiler();
         this.solutionBean.setLanguage(language);
+        this.solutionBean.setCompiler(compiler);
         this.solutionBean.setSourceCode(sourceCode);
         this.problemBean.setTime_limit(timeOut);
         // if(is == false) return ;
@@ -143,7 +144,7 @@ public class Process {
     }
 
     //得到评判结果
-    public Answer Judge(String language, String sourceCode, Float timeOut, List<ProblemTestCaseBean> testCaseBeans) {
+    public Answer Judge(String language,String compiler, String sourceCode, Float timeOut, List<ProblemTestCaseBean> testCaseBeans) {
         CompileInfo.init();
         RunInfo.init();
         Result.status = 0;
@@ -154,6 +155,7 @@ public class Process {
         this.judger = new Judger();
         //Boolean is = this.judger.checkForCompiler();
         this.solutionBean.setLanguage(language);
+        this.solutionBean.setCompiler(compiler);
         this.solutionBean.setSourceCode(sourceCode);
         this.problemBean.setTime_limit(timeOut);
         // if(is == false) return ;
@@ -242,7 +244,7 @@ public class Process {
     //step 2
     private void judgeForAllTestcase() {
 
-        if (judger.compileFound() && 0 == judger.compile(solutionBean.getSourceCode(), solutionBean.getLanguage())) {
+        if (judger.compileFound() && 0 == judger.compile(solutionBean.getSourceCode(), solutionBean.getLanguage(),solutionBean.getCompiler())) {
             for (int i = 0; i < sumTestcaseNum; i++) {
 
                 ProblemTestCaseBean caseBean = (ProblemTestCaseBean) testCaseBeans.get(i);
@@ -252,7 +254,7 @@ public class Process {
                 }else{
                 Shared.maxOutputLength=caseBean.getOutput().length()+2000;
                 }
-                if (judger.run(solutionBean.getLanguage(), caseBean.getInput(), problemBean.getTime_limit().intValue()) == 0) {
+                if (judger.run(solutionBean.getLanguage(),solutionBean.getCompiler(), caseBean.getInput(), problemBean.getTime_limit().intValue()) == 0) {
                     if (willCheck) {
                         judger.check(caseBean.getOutput());
                     } else {

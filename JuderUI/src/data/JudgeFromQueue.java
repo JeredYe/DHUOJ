@@ -6,6 +6,7 @@
 package data;
 
 import cache.ProblemsCachManager;
+import common.Const;
 import gui.Control;
 import java.awt.EventQueue;
 import java.util.ArrayList;
@@ -27,6 +28,8 @@ import myjdom.model.Solutions;
 import persistence.oj_beans.ProblemTestCaseBean;
 import swingworker.MySwingWorker;
 import log.Log;
+import resultData.CompileInfo;
+import resultData.Result;
 
 /**
  *
@@ -129,13 +132,17 @@ public class JudgeFromQueue extends Thread {
 
     //从队列中获取代码并裁判
     public void Judge(Solution s) throws Exception {
+
         String solutionId = s.getSolutionId();
         String problemId = s.getProblemId();
-        String language = s.getLangeuage();
+        String language = s.getLanguage();
         String sourceCode = s.getCode();
+        String compiler=s.getCompiler();
+
         Float timeOut = problemBeanMap.get(problemId).getTimeOut();
         List<ProblemTestCaseBean> testCaseBeanList = problemBeanMap.get(problemId).getTestCaseBeanList();
-        MySwingWorker myswingworker = new MySwingWorker(threadNo, solutionId, problemId, language, sourceCode, timeOut, testCaseBeanList, this::changeMessage, this::submitAnswer);
+        
+        MySwingWorker myswingworker = new MySwingWorker(threadNo, solutionId, problemId, language,compiler, sourceCode, timeOut, testCaseBeanList, this::changeMessage, this::submitAnswer);
         myswingworker.execute();
         myswingworker.get();
 //                      int i =1/0;
@@ -153,6 +160,11 @@ public class JudgeFromQueue extends Thread {
             problem = Control.getWebService().getProblem(Integer.parseInt(problemId));
             problemsCachManager.putObject("problemId" + problemId,
                     problem);
+        }
+       if(problem.isEmpty()){
+                     Result.status = Const.CE;
+            CompileInfo.remark = "获取题目信息失败！";
+            return;
         }
 //                System.out.println(Integer.parseInt(problemId));
 
